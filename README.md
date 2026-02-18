@@ -618,7 +618,6 @@ function addMsg(role,text,callback){
 function playConversation(){
   if(msgIndex>=CONV.length)return;
   const item=CONV[msgIndex];
-  // Show typing bubble for a moment before the message appears
   const thinkTime = 700 + Math.min(item.text.length * 18, 1800);
   setTimeout(()=>addMsg('typing'), 300);
   setTimeout(()=>{
@@ -638,8 +637,6 @@ function playConversation(){
         setTimeout(playConversation, 600);
       }
     });
-    msgIndex++;
-    if(item.isLast) return;
   }, thinkTime);
 }
 
